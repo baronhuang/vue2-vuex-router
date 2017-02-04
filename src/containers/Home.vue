@@ -1,11 +1,15 @@
+<!--首页-->
 <template>
     <div class="home">
         <div class="book-list-wrap">
             <header>最受关注图书 | 虚构类</header>
             <ul class="book-list">
                 <li v-for="book in fictionBook">
-                    <img :src="book.cover.url" alt="">
-                    <p>{{book.title}}</p>
+                    <router-link :to="'/book/' + book.id">
+                        <img :src="book.cover.url" alt="">
+                        <p>{{book.title}}</p>
+                    </router-link>
+
                 </li>
             </ul>
         </div>
@@ -21,9 +25,9 @@
         </div>
 
         <div class="book-list-wrap">
-            <header>豆瓣纸书</header>
+            <header>热门小说</header>
             <ul class="book-list">
-                <li v-for="book in marketBook">
+                <li v-for="book in hotFictionBook">
                     <img :src="book.cover.url" alt="">
                     <p>{{book.title}}</p>
                 </li>
@@ -61,6 +65,8 @@
 </style>
 
 <script>
+    import { mapState } from 'vuex'
+
     export default {
         name: 'Home',
         data () {
@@ -68,14 +74,19 @@
 //                user: this.$store.state.user
             }
         },
-        computed: {
-            fictionBook(){
-                return this.$store.state.fictionBook;
-            },
-            noFictionBook(){
-                return this.$store.state.noFictionBook;
-            }
-        },
+//        computed: {
+//            fictionBook(){
+//                return this.$store.state.fictionBook;
+//            },
+//            noFictionBook(){
+//                return this.$store.state.noFictionBook;
+//            },
+//            hotFictionBook(){
+//                return this.$store.state.hotFictionBook;
+//            }
+//        },
+        /*这里等同于上面*/
+        computed: mapState(['fictionBook', 'noFictionBook', 'hotFictionBook']),
         methods: {
             abc(){
 //                this.$store.state.user.a = 4;
@@ -84,16 +95,16 @@
         },
         /*preFetch 一定要有返回action*/
         preFetch(store){
-//            return Promise.all([
-//                store.dispatch('GET_FICTION_BOOK', {start:0, count: 4}),
-//                store.dispatch('GET_NOFICTION_BOOK', {start:0, count: 4}),
-//                store.dispatch('GET_MARKET_BOOK', {start:0, count: 4}),
-//            ]);
+            return Promise.all([
+                store.dispatch('GET_FICTION_BOOK', {start:0, count: 4}),
+                store.dispatch('GET_NOFICTION_BOOK', {start:0, count: 4}),
+                store.dispatch('GET_HOTFICTION_BOOK', {start:0, count: 4}),
+            ]);
         },
         beforeMount () {
             this.$store.dispatch('GET_FICTION_BOOK', {start:0, count: 4});
             this.$store.dispatch('GET_NOFICTION_BOOK', {start:0, count: 4});
-            this.$store.dispatch('GET_MARKET_BOOK', {start:0, count: 4});
+            this.$store.dispatch('GET_HOTFICTION_BOOK', {start:0, count: 4});
         }
     }
 </script>

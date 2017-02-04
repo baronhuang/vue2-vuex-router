@@ -8,6 +8,7 @@ Vue.use(Router)
 // import UserView from '../views/UserView.vue'
 
 import Home from '../containers/Home.vue'
+import Detail from '../containers/Detail.vue'
 
 export default new Router({
   mode: 'history',
@@ -21,6 +22,7 @@ export default new Router({
     // { path: '/item/:id(\\d+)', component: ItemView },
     // { path: '/user/:id', component: UserView },
     // { path: '*', redirect: '/top' }
-    { path: '/', component: Home }
+    { path: '/', component: Home },
+    { path: '/book/:id', component: Detail }
   ]
 })

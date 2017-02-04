@@ -32,13 +32,22 @@ export default {
             url: `${config.httpUrl}subject_collection/book_nonfiction/items`
         });
     },
-    /*豆瓣纸书*/
-    getMarketBook(params) {
+    /*热门小说*/
+    getHotFictionBook(params) {
         return axios({
             method: 'get',
             //data: params,
             params: params,
-            url: `${config.httpUrl}subject_collection/market_product_book/items`
+            url: `${config.httpUrl}subject_collection/filter_book_fiction_hot/items`
+        });
+    },
+    /*获取图书详情*/
+    getBookDetail(params) {
+        return axios({
+            method: 'get',
+            //data: params,
+            // params: params,
+            url: `${config.httpUrl}book/${params.id}`
         });
     },
 }
