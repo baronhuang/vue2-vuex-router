@@ -32,7 +32,7 @@
   }
 </script>
 
-<style lang="less">
+<style lang="less" rel="stylesheet/less">
   /** 清除内外边距 **/
   body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
   dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
@@ -86,6 +86,13 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+  }
+
+  .flex {
+    display: flex;
+    .flex-item {
+      flex: 1;
+    }
   }
 </style>
 

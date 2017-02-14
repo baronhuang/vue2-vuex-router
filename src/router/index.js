@@ -23,6 +23,7 @@ export default new Router({
     // { path: '/user/:id', component: UserView },
     // { path: '*', redirect: '/top' }
     { path: '/', component: Home },
-    { path: '/book/:id', component: Detail }
+    { path: '/book/:id', component: Detail },
+    { path: '*', redirect: '/' }
   ]
 })

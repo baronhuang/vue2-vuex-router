@@ -2,7 +2,7 @@
 <template>
     <header class="header">
         <div class="wrap">
-            <a href="" class="title">豆瓣读书</a>
+            <a href="/" class="title">豆瓣读书</a>
 
         </div>
     </header>

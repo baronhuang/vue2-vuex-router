@@ -2,6 +2,10 @@
  * Created by Administrator on 2017/1/20 0020.
  */
 
+/**
+ * 接口api
+ * */
+
 import axios from 'axios'
 import config from '../config'
 

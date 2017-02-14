@@ -9,7 +9,6 @@
                         <img :src="book.cover.url" alt="">
                         <p>{{book.title}}</p>
                     </router-link>
-
                 </li>
             </ul>
         </div>
@@ -18,8 +17,10 @@
             <header>最受关注图书 | 非虚构类</header>
             <ul class="book-list">
                 <li v-for="book in noFictionBook">
-                    <img :src="book.cover.url" alt="">
-                    <p>{{book.title}}</p>
+                    <router-link :to="'/book/' + book.id">
+                        <img :src="book.cover.url" alt="">
+                        <p>{{book.title}}</p>
+                    </router-link>
                 </li>
             </ul>
         </div>
@@ -28,8 +29,10 @@
             <header>热门小说</header>
             <ul class="book-list">
                 <li v-for="book in hotFictionBook">
-                    <img :src="book.cover.url" alt="">
-                    <p>{{book.title}}</p>
+                    <router-link :to="'/book/' + book.id">
+                        <img :src="book.cover.url" alt="">
+                        <p>{{book.title}}</p>
+                    </router-link>
                 </li>
             </ul>
         </div>
